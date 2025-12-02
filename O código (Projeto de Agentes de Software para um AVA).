@@ -1,0 +1,185 @@
+Iniciando o sistema de monitoramento de condições de prova e Relatório da Prova do ENADE 2025 pelo olhar do cidadão Ufraniano Pedro Paulo Maciel de Oliveira - 
+Matricula: 2018006895.”, para o Curso de LICENCIATURA PLENA EM COMPUTAÇÃO, da Universidade Federal Rural da Amazônia – UFRA como requisito do 1º NAP. 
+Orientação: Prof.ª Dr.ª Silvana Rossy de Brito.
+
+Relato detalhado e narrativo de uma experiência pessoal durante a chegada e a realização de uma prova. (Transformado para Projeto de Agentes de Software para um AVA).
+
+Copie o codigo abaixo\/\/\/
+
+O código (Projeto de Agentes de Software para um AVA).
+
+# Projeto de Agentes de Software para um AVA
+# Autor: Pedro Paulo Maciel de Oliveira
+# Matrícula: 2018006895
+
+class Agente:
+    def __init__(self, nome):
+        self.nome = nome
+        self.acao = []
+
+    def registrar_acao(self, descricao):
+        self.acao.append(descricao)
+        print(f"[{self.nome}] {descricao}")
+
+class Prova:
+    def __init__(self):
+        self.redacao_feita = False
+        self.questoes_marcadas = True
+        self.tempo = 0
+
+    def iniciar(self):
+        print("Prova iniciada. Sala muito fria...")
+
+    def realizar(self):
+        for hora in range(1, 4):
+
+            self.tempo += 1
+            print(f"Hora {hora}: realizando questões objetivas...")
+        print("Não foi possível fazer a redação devido ao frio.")
+
+    def entregar(self):
+        print("Prova entregue com cartão de respostas preenchido e redação em branco.")
+
+# Simulação
+def main():
+    # Criando agente
+    estudante = Agente("Pedro Paulo Maciel de Oliveira")
+
+    # Chegada ao local
+    estudante.registrar_acao("Chegou ao local de prova e viu uma VTR da PM com giroflex ligado.")
+    estudante.registrar_acao("Prendeu bicicleta na grade.")
+    estudante.registrar_acao("Foi abordado por moça da UNAMA oferecendo pesquisa e KIT PROVA.")
+    estudante.registrar_acao("Recebeu caneta preta e saco de pipoca.")
+
+    # Procedimentos da prova
+
+    prova = Prova()
+    estudante.registrar_acao("Apresentou identidade e guardou pertences no saco plástico.")
+    prova.iniciar()
+    prova.realizar()
+
+    prova.entregar()
+
+    # Saída
+    estudante.registrar_acao("Chamou a fiscal, entregou a prova e saiu da sala.")
+    estudante.registrar_acao("Pegou bicicleta e retornou para casa.")
+
+if __name__ == "__main__":
+    main()
+
+# Projeto de Agentes de Software para um AVA
+# Autor: Pedro Paulo Maciel de Oliveira
+# Matrícula: 2018006895
+
+class AgenteBase:
+    def __init__(self, nome):
+        self.nome = nome
+
+    def agir(self, acao):
+        print(f"[{self.nome}] {acao}")
+
+# --- Definição dos agentes ---
+class Estudante(AgenteBase):
+    def __init__(self, nome):
+        super().__init__(nome)
+        self.redacao_feita = False
+
+
+
+    def chegar_local(self):
+        self.agir("Chegou ao local de prova e prendeu bicicleta na grade.")
+
+    def interagir_unama(self, agente_unama):
+        agente_unama.oferecer_pesquisa(self)
+
+    def realizar_prova(self, ambiente, fiscal):
+        self.agir("Apresentou identidade e guardou pertences no saco plástico.")
+        ambiente.iniciar_prova()
+        ambiente.controlar_temperatura()
+        self.agir("Respondeu todas as questões objetivas.")
+        self.agir("Não fez a redação devido ao frio.")
+        fiscal.receber_prova(self)
+
+    def sair(self):
+        self.agir("Saiu da sala, pegou bicicleta e voltou para casa.")
+
+class Fiscal(AgenteBase):
+    def receber_prova(self, estudante):
+        self.agir("Recebeu a prova do estudante.")
+        print(f"[Fiscal] Prova entregue com redação em branco: {not estudante.redacao_feita}")
+
+class AgenteUNAMA(AgenteBase):
+    def oferecer_pesquisa(self, estudante):
+
+
+        self.agir("Perguntou nome e contato para pesquisa sobre pós-graduação.")
+        estudante.agir("Respondeu pesquisa e recebeu KIT PROVA (caneta + pipoca).")
+
+class AmbienteSala(AgenteBase):
+    def __init__(self):
+        super().__init__("Ambiente da Sala")
+        self.frio = True
+
+    def iniciar_prova(self):
+        self.agir("Prova iniciada. Sala muito fria...")
+
+    def controlar_temperatura(self):
+        self.agir("Após 2 horas, temperatura ajustada. Mas estudante já estava desconfortável.")
+
+class PoliciaMilitar(AgenteBase):
+    def __init__(self):
+        super().__init__("Polícia Militar")
+
+    def patrulhar(self):
+        self.agir("Viatura estacionada com giroflex ligado.")
+
+# --- Simulação ---
+def main():
+
+
+    estudante = Estudante("Pedro Paulo Maciel de Oliveira")
+    fiscal = Fiscal("Fiscal de Sala")
+    unama = AgenteUNAMA("Moça da UNAMA")
+    ambiente = AmbienteSala()
+    pm = PoliciaMilitar()
+
+    # Fluxo da simulação
+    pm.patrulhar()
+    estudante.chegar_local()
+    estudante.interagir_unama(unama)
+    estudante.realizar_prova(ambiente, fiscal)
+    estudante.sair()
+
+if __name__ == "__main__":
+    main()
+
+Resultado do Código já executado.
+
+[Pedro Paulo Maciel de Oliveira] Chegou ao local de prova e viu uma VTR da PM com giroflex ligado.
+[Pedro Paulo Maciel de Oliveira] Prendeu bicicleta na grade.
+[Pedro Paulo Maciel de Oliveira] Foi abordado por moça da UNAMA oferecendo pesquisa e KIT PROVA.
+[Pedro Paulo Maciel de Oliveira] Recebeu caneta preta e saco de pipoca.
+[Pedro Paulo Maciel de Oliveira] Apresentou identidade e guardou pertences no saco plástico.
+Prova iniciada. Sala muito fria...
+Hora 1: realizando questões objetivas...
+Hora 2: realizando questões objetivas...
+Hora 3: realizando questões objetivas...
+Não foi possível fazer a redação devido ao frio.
+Prova entregue com cartão de respostas preenchido e redação em branco.
+[Pedro Paulo Maciel de Oliveira] Chamou a fiscal, entregou a prova e saiu da sala.
+[Pedro Paulo Maciel de Oliveira] Pegou bicicleta e retornou para casa.
+[Polícia Militar] Viatura estacionada com giroflex ligado.
+[Pedro Paulo Maciel de Oliveira] Chegou ao local de prova e prendeu bicicleta na grade.
+[Moça da UNAMA] Perguntou nome e contato para pesquisa sobre pós-graduação.
+[Pedro Paulo Maciel de Oliveira] Respondeu pesquisa e recebeu KIT 
+PROVA (caneta + pipoca).
+[Pedro Paulo Maciel de Oliveira] Apresentou identidade e guardou pertences no saco plástico.
+[Ambiente da Sala] Prova iniciada. Sala muito fria...
+[Ambiente da Sala] Após 2 horas, temperatura ajustada. Mas estudante já estava desconfortável.
+[Pedro Paulo Maciel de Oliveira] Respondeu todas as questões objetivas.
+[Pedro Paulo Maciel de Oliveira] Não fez a redação devido ao frio.
+[Fiscal de Sala] Recebeu a prova do estudante.
+[Fiscal] Prova entregue com redação em branco: True
+[Pedro Paulo Maciel de Oliveira] Saiu da sala, pegou bicicleta e voltou para casa.
+
+=== Code Execution Successful ===
