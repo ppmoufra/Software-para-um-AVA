@@ -1,0 +1,19 @@
+Relato detalhado e narrativo de uma experiência pessoal durante a chegada e a realização de uma prova. 
+(Transformado para Projeto de Agentes de Software para um AVA).
+
+Fluxograma em Mermaid (Markdown).
+
+
+flowchart TD
+    PM[Polícia Militar: Viatura com giroflex] --> E[Estudante chega ao local]
+    E --> U[Moça da UNAMA: Pesquisa + Kit Prova]
+    E --> A[Ambiente da Sala: Sala fria]
+    U --> E
+    A --> E
+    E --> F[Fiscal de Sala: Recebe prova]
+    F --> E
+    E --> S[Estudante sai: pega bicicleta e volta para casa]
+
+“O fluxograma em Mermaid pode ser renderizado em Markdown 
+(por exemplo, no GitHub ou VS Code com extensão Mermaid) e 
+gera um diagrama gráfico automático”.
