@@ -1,0 +1,40 @@
+Relato detalhado e narrativo de uma experiência pessoal durante a chegada e a realização de uma prova.
+(Transformado para Projeto de Agentes de Software para um AVA).
+
+
+Fluxograma em ASCII (texto).
+
+
+              ┌────────────────────────────┐
+        		    │ Polícia Militar (PM)│
+        		    │ Viatura com giroflex│
+              └───────────┬────────────────┘
+                   		    │
+                   		    ▼
+                ┌─────────────────────┐
+        		         │ Estudante│
+       	          |Chega ao local │
+                └───────────┬─────────┘
+                            │
+           ┌────────────────┴─────────────────┐
+           ▼                                  ▼
+┌──────────────────────┐              ┌────────────────────────┐
+    │ Moça da UNAMA│                     │ Ambiente da Sala │
+    │ Pesquisa + Kit│                    |  Sala fria │
+└───────┬──────────────┘              └─────────────────┬──────┘
+        │                                               │
+        ▼                                               ▼
+┌──────────────────────┐              ┌────────────────────────┐
+    │ Estudante │                          │ Fiscal de Sala │
+         │ Faz prova │────¬¬¬¬¬¬─────────▶ │ Recebe prova  │
+    │ (sem redação) │                      │ Redação em branco│
+└──────────────────────┘              └────────────────────────┘
+           │
+           ▼
+┌────────────────────────────┐
+    │ Estudante sai       │
+    │ Pega bicicleta      │
+    │ Volta para casa     │
+└────────────────────────────┘
+
+“O fluxograma em ASCII é útil para visualizar direto no console ou texto simples”.
